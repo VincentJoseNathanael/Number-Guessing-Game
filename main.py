@@ -1,21 +1,7 @@
 import random
-def main():
-    secret_number = random.randint(1,100)
-    highscore = 0
-    isrunning = True
+def user_input():
     chances = 0
-    low_number = 1
-    high_number = 100
-    print("Welcome to the Number Guessing Game!")
-    print("I'm thinking of a number between 1 and 100.")
-    print("If you guess the number out of range, your chances will be reduced.")
-    print("You can guess the number in 3 different difficulty levels.\n")
-    print("Please select the difficulty level:")
-    print("1. Easy (10 chances)")
-    print("2. Medium (5 chances)")
-    print("3. Hard (3 chances)")
-
-    while isrunning:
+    while True:
         try:
             level = int(input("Enter your choice : "))
             match level:
@@ -37,7 +23,24 @@ def main():
         except ValueError:
             print("Please enter a number!")
             continue
-    print("Let's start the game!\n")
+    print("Let'start the game!\n")
+    return chances
+def main():
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
+    print("If you guess the number out of range, your chances will be reduced.")
+    print("You can guess the number in 3 different difficulty levels.\n")
+    print("Please select the difficulty level:")
+    print("1. Easy (10 chances)")
+    print("2. Medium (5 chances)")
+    print("3. Hard (3 chances)")
+    secret_number = random.randint(1,100)
+    highscore = 0
+    isrunning = True
+    chances = 0
+    low_number = 1
+    high_number = 100
+    chances = user_input()
     while isrunning:
         guess = input(f"Guess the number (between {low_number} and {high_number}) - Chances left: {chances} : ")
         if not guess.isdigit():
